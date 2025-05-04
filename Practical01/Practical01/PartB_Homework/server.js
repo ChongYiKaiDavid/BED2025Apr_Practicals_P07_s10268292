@@ -7,11 +7,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/intro', (req, res) => {
-  res.send("Hi, I'm Gary, a student learning to build APIs with Express!");
+  res.send("Hi, I'm David, a student learning to build APIs with Express!");
 });
 
 app.get('/name', (req, res) => {
-  res.send("Gary Chong");
+  res.send("David Chong");
 });
 
 app.get('/hobbies', (req, res) => {
@@ -24,9 +24,9 @@ app.get('/food', (req, res) => {
 
 app.get('/student', (req, res) => {
   res.json({
-    name: "Gary",
+    name: "David",
     hobbies: ["coding", "gaming", "music"],
-    intro: "Hi, I'm Gary, a Year 2 student passionate about building APIs!"
+    intro: "Hi, I'm David, a Year 2 student passionate about building APIs!"
   });
 });
 
