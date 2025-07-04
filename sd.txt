@@ -1,0 +1,51 @@
+Task 1: Reflection on Refactoring
+
+1. What were the main changes you made to refactor the code into MVC architecture?
+The main changes involved separating the logic into three main parts:
+
+Models: Moved all database queries from app.js into the models/bookModel.js file.
+
+Controllers: Moved request-handling logic into controllers/bookController.js.
+
+Routes: Created a routes/bookRoutes.js file to define API endpoints and link them to the appropriate controller functions.
+
+The main app.js file was simplified to just set up Express and middleware, and to load the route files.
+
+2. What challenges did you face during the refactoring process?
+Some challenges included:
+
+Making sure all imports and exports were correctly connected between files.
+
+Ensuring the route paths and method names remained consistent.
+
+Debugging path-related errors due to incorrect folder structures or module references.
+
+3. How does the MVC structure change your thinking when adding new features?
+MVC encourages me to plan clearly which part of the code a new feature should go into. For example, if I want to add a new endpoint, I now know I need to:
+
+Write the SQL logic in the Model.
+
+Write the request-handling logic in the Controller.
+
+Define the endpoint in the Routes file.
+This separation makes changes more systematic and less error-prone.
+
+4. How is the MVC version more organized or easier to understand/maintain than before?
+The code is now separated by responsibility, so it’s easier to locate bugs or make improvements without affecting unrelated parts. It’s also easier for new developers to understand and contribute to the project because the structure follows a clear pattern.
+
+5. How does separating concerns improve the code from a development perspective?
+It improves modularity and reusability. If there’s an issue with database logic, I only need to look into the Model. If an API is misbehaving, I can debug the Controller. This reduces the complexity of each file and makes testing and updating much simpler.
+
+
+Task 2: Reflecting on Robustness & Security
+1. How does input validation middleware improve the API?
+Input validation ensures only correct and expected data reaches the database. This prevents bad data and makes the API more user-friendly by returning clear messages.
+Example: If a user tries to add a book with an empty title or non-integer book_id, the validation will catch this before the query runs.
+
+2. How do parameterized queries prevent SQL injection? Why is this more secure?
+Parameterized queries use placeholders like ? to separate user input from the SQL logic. The database treats the input as data only, not as executable SQL.
+This is safer than string concatenation, which allows malicious users to inject harmful SQL commands.
+
+3. How can robust error handling protect the API from other security risks?
+Good error handling hides sensitive system information from the user. For example, instead of showing a full stack trace, the API can return a generic message like “Internal server error.”
+This prevents attackers from gaining insights into the database structure or application logic, reducing the risk of targeted attacks like brute-force or data scraping.
