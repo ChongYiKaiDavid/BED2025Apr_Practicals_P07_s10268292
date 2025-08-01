@@ -1,0 +1,11 @@
+module.exports = {
+  user: "booksapi_user", // Replace with your SQL Server login username
+  password: "password123", // Replace with your SQL Server login password
+  server: "localhost",
+  database: "bed_db", // Using the same database for simplicity
+  trustServerCertificate: true,
+  options: {
+    port: 1433, // Default SQL Server port
+    connectionTimeout: 60000, // Connection timeout in milliseconds
+  },
+};

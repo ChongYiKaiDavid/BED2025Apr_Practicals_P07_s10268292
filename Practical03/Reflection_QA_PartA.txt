@@ -1,0 +1,25 @@
+Reflection & Q&A - Part A: Lab Activity
+
+Reflection:
+
+During Part A of this practical, I learned how to integrate Node.js with Microsoft SQL Server using the mssql package. The experience of embedding database logic directly within route handlers provided valuable insights into both the benefits and drawbacks of this approach.
+
+Looking at the final app.js file where all logic is consolidated in routes without validation, I found it relatively straightforward to understand what each route handler does since everything is in one place. However, this approach makes the code quite verbose and repetitive. Each route handler follows a similar pattern of connecting to the database, executing queries, handling errors, and ensuring connection cleanup, which leads to significant code duplication.
+
+If I found a bug in how books are created in the database, the current version with all logic embedded in routes would make it moderately easy to locate the issue since the entire POST /books logic is contained within a single function. However, if the same bug existed across multiple operations (like both creating and updating books), I would need to fix it in multiple places, increasing the risk of inconsistent fixes.
+
+The main challenges I faced while implementing this practical were:
+1. Ensuring proper connection management - making sure connections are always closed in the finally block regardless of success or failure
+2. Understanding the importance of parameterized queries to prevent SQL injection
+3. Handling edge cases like invalid IDs and missing records appropriately
+4. Managing the repetitive nature of the database connection logic across different routes
+
+This practical clearly demonstrated why separation of concerns and modular code organization (like MVC architecture) will be beneficial in future practicals. While the embedded approach works for learning basic concepts, it becomes unwieldy as applications grow in complexity.
+
+Challenges Faced:
+- Initially struggled with understanding the mssql package syntax for parameterized queries
+- Had to be careful with error handling to ensure database connections are properly closed
+- Understanding the difference between result.recordset and result.rowsAffected for different types of operations
+- Ensuring proper HTTP status codes are returned for different scenarios (200, 201, 404, 500)
+
+Overall, this practical provided a solid foundation in database integration with Node.js, while highlighting the importance of proper code organization and error handling in production applications.

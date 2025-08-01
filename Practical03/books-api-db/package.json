@@ -1,0 +1,17 @@
+{
+  "name": "books-api-db",
+  "version": "1.0.0",
+  "description": "Books API with SQL Server database integration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["books", "api", "mssql", "crud"],
+  "author": "Student",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mssql": "^10.0.1"
+  }
+}
